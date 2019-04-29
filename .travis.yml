@@ -10,3 +10,12 @@ scala:
 
 script:
   - sbt clean compile
+
+.deploy:
+  provider: releases
+  api_key: "GITHUB OAUTH TOKEN"
+  file_glob: true
+  file: openapi.*.yaml
+  skip_cleanup: true
+  on:
+    tags: true
